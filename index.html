@@ -156,38 +156,38 @@
                 <p>Alright let's talk business, just fill in those detalils and click the button for your to become a real life product with great profitablity</p>
             </div>
             <div class="col s12 l5 offset-l2">
-                <form>
+                <form action="MAILTO:kerebipreye@gmail.com" method="POST" enctype="text/plain">
                     <div class="input-field">
                         <i class="material-icons prefix blue-text text-darken-2">mail</i>
-                        <input type="email" id="email">
+                        <input type="email" name="email" id="email">
                         <label for="email">Your Email</label>
                     </div>
                     <div class="input-field">
                         <i class="material-icons prefix blue-text text-darken-2">message</i>
-                        <textarea  id="messsage" class="materialize-textarea"></textarea>
+                        <textarea name="message"  id="messsage" class="materialize-textarea"></textarea>
                         <label for="message">Your Message</label>
                     </div>
                     <div class="input-field">
-                        <input type="text" id="date" class="datepicker">
+                        <input name="dateOfDelivery" type="text" id="date" class="datepicker">
                         <label for="date">Choose a date you need the service done...</label>
                     </div>
                     <div class="input-field">
                         <p>Services required...</p>
                         <p>
                             <label>
-                                <input type="checkbox">
+                                <input name="service" type="checkbox">
                                 <span>Web Design</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input type="checkbox">
+                                <input name="service" type="checkbox">
                                 <span>Web Development</span>
                             </label>
                         </p>
                     </div>
                     <div class="input-field center">
-                        <button class="btn blue darken-2">Submit</button>
+                        <button name="submit" class="btn blue darken-2" id="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -240,6 +240,11 @@
                 });
                 $('.tooltipped').tooltip();
                 $('.scrollspy').scrollSpy();
+            });
+            document.getElementById('submit').addEventListener('click', function(){
+                setTimeout(() => {
+                    alert('message sent successfully');
+                }, 200);
             })   
         </script>
 </body>
