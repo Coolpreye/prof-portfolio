@@ -26,6 +26,34 @@
         .input-field button {
             border-radius: 10px;
         }
+
+        .intro {
+            color: #fff;
+        }
+
+        .typing {
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .typing::after {
+            content: "";
+            position: absolute;
+            right: -5px;
+            width: 1px;
+            height: 5%;
+            border-right: 2px solid #fff;
+            animation: blink 0.5s ease infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
         @media screen and (max-width: 670px) {
             header {
                 min-height: 500px;
@@ -70,6 +98,10 @@
             <li><a href="#services" class="white-text">Services</a></li>
             <li><a href="#contact" class="white-text">Contact</a></li>
         </ul>
+        <div class="container intro">
+            <h3>Welcome!, I do</h3>
+            <h5 class="typing"></h5>
+        </div>
     </header>
 
     <section class="container section scrollspy" id="projImg">
@@ -245,7 +277,24 @@
                 setTimeout(() => {
                     alert('message sent successfully');
                 }, 200);
-            })   
+            }) 
+            
+            const texts = ['web Design', 'Web Development', 'Design'];
+            let count = 0, index = 0, currentText = "", letter = "";
+
+                (function type() {
+                        if(count === texts.length) {
+                            count = 0;
+                        }
+                        currentText = texts[count];
+                        letter = currentText.slice(0, ++index);
+                        document.querySelector('.typing').textContent = letter;
+                        if(letter.length === currentText.length) {
+                            count++;
+                            index = 0;
+                        }
+                        setTimeout(type, 400);
+                })();            
         </script>
 </body>
 </html>
